@@ -1,8 +1,7 @@
 import numpy as np
-
 import matplotlib.pyplot as plt 
 
-def plot(results, p, N):
+def plot(results, p, N): #function to plot the results
     b = range(1, len(p)+2)
     sb = np.size(b)
     h1, bin_edges = np.histogram(results,bins = b)
@@ -17,21 +16,21 @@ def plot(results, p, N):
     
     
 def main():
-    rolls = 100000
-    successes = []
+    rolls = 100000 #number of times to repeat the experiment
     
-    for num in range(rolls):
+    successes = []
+    for num in range(rolls): # runs the experiment N amount of times
         sum = 0
         count = 0
-        while sum !=7:
-            sum = np.random.randint(1,7) + np.random.randint(1,7)
-            count+=1
-        successes.append(count)
+        while sum !=7: #checks if the dice sum is 7
+            sum = np.random.randint(1,7) + np.random.randint(1,7) #rolls the die and checks the sum
+            count+=1 #counts how many rolls
+        successes.append(count) # records the number of rolls
     y=[]
     for num in range(30):
         y.append(num)
         
-    plot(successes, y, rolls )
+    plot(successes, y, rolls ) # plots the results
     
     
 main()
