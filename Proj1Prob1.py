@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt 
 
-
 def nSidedDie(p): #flips the unfair die a single time and returns the result
     n = len(p)    
     cs = np.cumsum(p)
@@ -28,16 +27,11 @@ def plot(results, p, N): #plots the result and prints the PMF table
 
 
 def main():
-    
     N = 10000 #number of times to repeat the experiment
-        
     p = np.array ([0.10,  0.15,  0.20,  0.35, 0.20]) #probability for each side of the unfair die
-    
     results = []
     for num in range(N): #runs experiment N amount of times
         results.append(nSidedDie(p)) 
-    
     plot(results, p, N) #plots the result
     
-
 main()
